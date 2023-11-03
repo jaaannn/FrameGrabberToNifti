@@ -25,12 +25,12 @@ def main_function():
     images_lateral: list = []
 
     def save_data_to_nifti(*args):
-        path = os.getcwd() + "/Recordings/" + time.strftime("%Y%m%d-%H%M%S") + "/"
+        save_path = os.getcwd() + "/Recordings/" + time.strftime("%Y%m%d-%H%M%S") + "/"
         print("")
-        print("Saving Images to " + path)
-        os.mkdir(path)
-        nib.save(nib.Nifti1Image(np.array(images_frontal), np.eye(4)), path + "recording_frontal.nii.gz")
-        nib.save(nib.Nifti1Image(np.array(images_lateral), np.eye(4)), path + "recording_lateral.nii.gz")
+        print("Saving Images to " + save_path)
+        os.mkdir(save_path)
+        nib.save(nib.Nifti1Image(np.array(images_frontal), np.eye(4)), save_path + "recording_frontal.nii.gz")
+        nib.save(nib.Nifti1Image(np.array(images_lateral), np.eye(4)), save_path + "recording_lateral.nii.gz")
         sys.exit()
 
     print("Cams initialized, press Enter to start")
